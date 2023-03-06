@@ -1,0 +1,70 @@
+@use "../vars" as v;
+@use "../components/nav-menu.scss";
+
+main#teams {
+  margin-top: 2%;
+  .add-team-toggler {
+    font-size: large;
+    color: rgba(0, 0, 0, 0.701);
+    // border: 1px solid white;
+    display: flex;
+    justify-content: center;
+  }
+  .card-collection {
+    display: flex;
+    flex-direction: column;
+    // gap: 1em;
+  }
+  .plus-btn {
+    background-color: white;
+    border: none;
+    min-height: 300px;
+    // border: 1px solid rgb(163, 163, 163);
+    // padding: 0px auto;
+    cursor: pointer;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    word-break: break-all;
+  }
+  .add-team {
+    // border: none;
+  }
+  .team-name {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .team-short-name {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .hide {
+    display: none;
+  }
+  
+  @media (min-width: v.$mobile-width) {
+    .plus-btn {
+      border: none;
+    }
+    .card-collection {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 32.5%;
+    }
+    .add-team {
+      border: 1px solid #ddd;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+

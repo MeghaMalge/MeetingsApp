@@ -1,0 +1,104 @@
+@use "../vars" as v;
+
+#meeting {
+  .form {
+    padding: 2%;
+  }
+
+  h2 {
+    color: white;
+    font-size: 2em;
+    // text-align: left;
+  }
+  
+  .form-group {
+    
+    margin: 0;
+    border-radius: 5px;
+    background-color: v.$container-bg-color;
+  
+  }
+  
+  #search-meeting-form {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    width: 100%;
+  }
+
+  #add-meeting-form {
+    width: 100%;
+  }
+  
+  .form-group label {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  
+  .form-group input {
+    display: inline-block;
+    width: 100%;
+    font-size: 1em;
+    padding: 0.3em;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+  }
+  
+  .form-group .margin-bottom {
+    margin-bottom: 1em;
+  }
+  
+  form button {
+    padding: 0.5em;
+    margin: 10px 0px;
+    width: fit-content;
+    font-size: 1em;
+    background-color: v.$add-btn-color;
+    color: white;
+    border: 1px solid v.$add-btn-color;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: white;
+    color: v.$add-btn-color;
+  }
+  
+  .form-group textarea {
+    width: 100%;
+    padding: .3em;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 1em;
+  }
+  
+  .form-group .info-message {
+    display: inline-block;
+    width: 100%;
+    color: white;
+  }
+  
+  .form-group select {
+    border: 1px solid transparent;
+    padding: .3em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    position: relative;
+  }
+  
+  
+  .form-group select#date option {
+    background-color: rgb(149, 221, 250);
+    position: absolute;
+    right: 30%;
+    top: 5px;
+  }
+  
+  .form-group select#date option:hover {
+    background-color: blue;
+  }
+  
+}

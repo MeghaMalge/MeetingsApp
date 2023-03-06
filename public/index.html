@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeetingsApp</title>
+    <link rel="stylesheet" href="css/external/normalize.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="./dist/js/main.bundle.js" defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <template id="login">
+      <main class="login-bg">
+        <div class="dialog">
+          <section class="form">
+            <h1>Login</h1>
+            <form
+              action="https://mymeetingsapp.herokuapp.com/api/auth/login"
+              id="login-form"
+              method="post"
+            >
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value="megham2322@gmail.com"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="message"></div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value="Megha@2322"
+                  placeholder="Password"
+                />
+                <div class="message"></div>
+              </div>
+
+              <button type="submit">Login</button>
+            </form>
+          </section>
+          <section class="switch">
+            Don't have Account?
+            <a href="register.html" class="link-unstyle">Register here</a>
+          </section>
+        </div>
+      </main>
+    </template>
+
+    <template id="register">
+      <main class="login-bg">
+        <div class="dialog">
+          <section class="form">
+            <h1>Register Here</h1>
+            <form
+              class="container"
+              id="register-form"
+              action="https://mymeetingsapp.herokuapp.com/api/auth/register"
+              method="post"
+            >
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <div class="message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <div class="message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="Confirm Password"
+                />
+                <div class="message"></div>
+              </div>
+              <button type="submit">Register</button>
+            </form>
+          </section>
+          <section class="switch">
+            Already have Account?
+            <a href="login.html" class="link-unstyle">Login here</a>
+          </section>
+        </div>
+      </main>
+    </template>
+
+    <template id="meetings">
+      <header>
+        <div class="menu d-lg-none">
+          <span>My Meetings</span>
+          <button class="menu-toggler">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <nav class="navbar d-sm-none">
+          <ul class="left-nav list-unstyle">
+            <li><a href="calendar.html" class="link-unstyle">Calendar</a></li>
+            <li class="active">
+              <a href="meetings.html" class="link-unstyle">Meetings</a>
+            </li>
+            <li><a href="teams.html" class="link-unstyle">Teams</a></li>
+          </ul>
+          <ul class="right-nav list-unstyle">
+            <li>Hello<span class="link-unstyle" id="user"></span></li>
+            <li>
+              <a href="login.html" class="link-unstyle" id="btn-logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main id="meeting" class="container">
+        <h1>Meetings</h1>
+        <hr  class="my"/>
+        <div class="tab">
+          <button class="tablinks" id="default-open">
+            Filter / Search Meetings
+          </button>
+          <button class="tablinks" id="add-open">Add a Meeting</button>
+        </div>
+
+        <div class="background">
+          <!--filter/search meetings-->
+          <div id="filter" class="tabcontent">
+            <div class="form-group form">
+              <h2 class="my">Search for meetings</h2>
+              <hr />
+              <form
+                id="search-meeting-form"
+                method="get"
+                action="https://mymeetingsapp.herokuapp.com/api/meetings"
+              >
+          
+                  <label for="period">Date</label>
+
+                  <select id="period" name="period">
+                    <option value="all">ALL</option>
+                    <option value="past">PAST</option>
+                    <option value="present">TODAY</option>
+                    <option value="future">UPCOMING</option>
+                  </select>
+            
+                  <label for="search-for">Search for</label>
+
+                  <textarea
+                    id="search-for"
+                    name="search"
+                    placeholder="Search using words which describe the meeting"
+                  ></textarea>
+          
+
+                <button type="submit">Search</button>
+              </form>
+            </div>
+
+            <!--show filtered meetings-->
+            <div class="hide meeting-card-container-heading">
+              <h3  class="my">Meetings matching Search Criteria</h3>
+              <hr  class="my"/>
+              <div class="meeting-card-container"></div>
+            </div>
+          </div>
+
+          <!--add a new meeting-->
+          
+          <div id="add" class="tabcontent">
+            <div class="msg-success hide"></div>
+            <div class="form-group form">
+              <h2  class="my">Add a new meeting</h2>
+              <hr />
+              <form
+               
+                id="add-meeting-form"
+                method="post"
+                action="https://mymeetingsapp.herokuapp.com/api/meetings"
+              >
+                <label for="meeting-name">Meeting name</label>
+                <input type="text" id="meeting-name" name="meeting-name" />
+
+                <label for="date">Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  placeholder="dd/mm/yy"
+                />
+
+                <label for="start-time">Start time</label>
+                <input type="time" name="start-time" id="start-time" />
+
+                <label for="end-time">End time</label>
+                <input type="time" name="end-time" id="end-time" />
+                <div class="message"></div>
+
+                <label for="description">Description</label>
+                <textarea
+                  type="text"
+                  id="description"
+                  name="description"
+                  placeholder="What is agenda of the meeting?"
+                ></textarea>
+
+                  <label for="attendees"
+                    >Email Ids of attendees</label>
+               
+                    <input
+                      type="text"
+                      id="attendees"
+                      name="attendees"
+                      placeholder="john.doe@example.com, mark@example.com"
+                    />
+               
+                  <span class="info-message"
+                    >Separate email Ids of attendees by commas</span>
+              
+                <button type="submit">Add Meeting</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </template>
+
+    <template id="calendar">
+      <header>
+        <div class="menu d-lg-none">
+          <span>My Meetings</span>
+          <button class="menu-toggler">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <nav class="navbar d-sm-none">
+          <ul class="left-nav list-unstyle">
+            <li class="active">
+              <a href="calendar.html" class="link-unstyle">Calendar</a>
+            </li>
+            <li><a href="meetings.html" class="link-unstyle">Meetings</a></li>
+            <li><a href="teams.html" class="link-unstyle">Teams</a></li>
+          </ul>
+          <ul class="right-nav list-unstyle">
+            <li>Hello<span class="link-unstyle" id="user"></span></li>
+            <li>
+              <a href="login.html" class="link-unstyle" id="btn-logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="calendar" class="container">
+        <h1>Calendar</h1>
+        <hr class="my"/>
+        <div class="date">
+            <span id="today-date"></span>
+          <div>
+            <label for="select-date" class="visually-hidden"
+              >today's date</label
+            >
+            <input type="date" id="select-date" name="date" />
+          </div>
+        </div>
+
+        <div class="calander">
+          <div class="hours">
+            <ul id="time-sheet">
+              <li>
+                <span class="hour">0</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">1</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">2</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">3</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">4</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">5</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">6</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">7</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">8</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">9</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">10</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">11</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">12</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">13</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">14</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">15</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">16</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">17</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">18</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">19</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">20</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">21</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">22</span>
+                <span class="content"></span>
+              </li>
+              <li>
+                <span class="hour">23</span>
+                <span class="content"></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="meetings-container"></div>
+        </div>
+        <!-- <div class="meetings-container"></div> -->
+      </main>
+    </template>
+
+    <template id="teams">
+      <header>
+        <div class="menu d-lg-none">
+          <span>My Meetings</span>
+          <button class="menu-toggler">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <nav class="navbar d-sm-none">
+          <ul class="left-nav list-unstyle">
+            <li><a href="calendar.html" class="link-unstyle">Calendar</a></li>
+            <li><a href="meetings.html" class="link-unstyle">Meetings</a></li>
+            <li class="active">
+              <a href="teams.html" class="link-unstyle">Teams</a>
+            </li>
+          </ul>
+          <ul class="right-nav list-unstyle">
+            <li>Hello<span class="link-unstyle" id="user"></span></li>
+            <li>
+              <a href="login.html" class="link-unstyle" id="btn-logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main id="teams" class="container">
+        <h1>Teams</h1>
+        <hr class="my"/>
+        <div class="my">View and edit teams you are part of</div>
+        <div class="message-info"></div>
+        <div class="msg-success hide"></div>
+        <div class="card-collection">
+          <form
+            method="post"
+            action="https://mymeetingsapp.herokuapp.com/api/teams"
+            id="add-team"
+            class="team-form hide card my"
+          >
+            <label for="team-name" class="visually-hidden">Team name</label>
+            <input
+              type="text"
+              name="team-name"
+              id="team-name"
+              placeholder="team name"
+              
+            />
+            <div class="message"></div>
+
+            <label for="team-short-name" class="visually-hidden">Team Short name</label>
+            <input
+              type="text"
+              name="team-short-name"
+              id="team-short-name"
+              placeholder="team short name"
+            />
+            <div class="message"></div>
+            <label for="team-description" class="visually-hidden">Team Description</label>
+            <textarea
+              name="team-description"
+              id="team-description"
+              placeholder="Provide a description for the team"
+            ></textarea>
+          </form>
+
+          <div class="add-team card my">
+            <button class="plus-btn" type="button">
+              <a class="add-team-toggler">
+                <i class="fa fa-plus"></i>
+              </a>
+            </button>
+          </div>
+        </div>
+      </main>
+    </template>
+
+    <template id="page-not-found">
+      <h1>Page Not Found</h1>
+    </template>
+  </body>
+</html>

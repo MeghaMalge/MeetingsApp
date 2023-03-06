@@ -1,0 +1,54 @@
+main#teams .add-team-toggler {
+  font-size: large;
+  color: rgba(0, 0, 0, 0.701);
+  display: flex;
+  justify-content: center;
+}
+main#teams .card-collection {
+  display: flex;
+  flex-direction: column;
+}
+main#teams .plus-btn {
+  background-color: white;
+  border: none;
+  min-height: 300px;
+  cursor: pointer;
+}
+main#teams .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1em;
+  word-break: break-all;
+}
+main#teams .team-name {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+main#teams .team-short-name {
+  font-size: 1em;
+  font-weight: bold;
+}
+@media (min-width: 640px) {
+  main#teams .plus-btn {
+    border: none;
+  }
+  main#teams .card-collection {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  main#teams .card {
+    width: 32.5%;
+  }
+  main#teams .add-team {
+    border: 1px solid #ddd;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=teams.css.map */

@@ -1,0 +1,155 @@
+.tab {
+  overflow: hidden;
+  margin-bottom: 1px solid #ccc;
+  background-color: white;
+}
+
+.background {
+  padding-top: 1em;
+  border-top: 1px solid black;
+  z-index: 4;
+  margin-top: -1px;
+}
+
+.tab button {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 17px;
+  background-color: white;
+  border-bottom: 1px solid black;
+  color: rgb(7, 106, 254);
+  cursor: pointer;
+}
+
+.tab button.active {
+  border: 1px solid black;
+  border-bottom: 1px solid white;
+  margin-bottom: -2px;
+  z-index: 10;
+  color: black;
+}
+
+.tabcontent {
+  display: none;
+  padding: 0;
+}
+
+.tabcontent h1 {
+  color: white;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+hr {
+  margin-top: 0px;
+  z-index: 0;
+}
+
+#meeting .form {
+  padding: 2%;
+}
+#meeting .form-group {
+  margin: 0;
+  border-radius: 5px;
+  background-color: rgb(22, 202, 234);
+}
+#meeting #search-meeting-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+#meeting #add-meeting-form {
+  width: 100%;
+}
+#meeting .form-group label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+#meeting .form-group input {
+  display: inline-block;
+  width: 100%;
+  font-size: 1em;
+  padding: 0.3em;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+}
+#meeting .form-group .margin-bottom {
+  margin-bottom: 1em;
+}
+#meeting form button {
+  padding: 0.5em;
+  margin: 10px 0px;
+  width: fit-content;
+  font-size: 1em;
+  background-color: rgb(7, 106, 254);
+  color: white;
+  border: 1px solid rgb(7, 106, 254);
+  border-radius: 10%;
+  cursor: pointer;
+}
+#meeting form button:hover {
+  background-color: white;
+  color: rgb(7, 106, 254);
+}
+#meeting .form-group textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+#meeting .form-group .info-message {
+  display: inline-block;
+  width: 100%;
+  color: white;
+}
+#meeting .form-group select {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  position: relative;
+}
+#meeting .form-group select#date option {
+  background-color: rgb(149, 221, 250);
+  position: absolute;
+  right: 30%;
+  top: 5px;
+}
+#meeting .form-group select#date option:hover {
+  background-color: blue;
+}
+
+main#meeting .meeting-card-container {
+  display: flex;
+  flex-direction: column;
+}
+main#meeting .meeting-card-container .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 5px;
+  word-break: break-all;
+}
+
+.date {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.duration {
+  font-weight: 500;
+}
+
+.meeting-name {
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=meetings.css.map */

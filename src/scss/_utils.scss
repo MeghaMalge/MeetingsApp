@@ -1,0 +1,70 @@
+@use "./vars" as v;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0px auto;
+}
+
+main {
+  padding: 0;
+}
+
+.my {
+  margin: 10px 0px;
+}
+
+.d-sm-none {
+  display: none !important;
+}
+
+.d-lg-none {
+  display: auto;
+}
+
+.link-unstyle {
+  text-decoration: none;
+}
+
+.list-unstyle {
+  list-style: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.message {
+  color: v.$error-msg-color;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+hr {
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: v.$mobile-width) {
+  .d-sm-none {
+    display: flex !important;
+  }
+
+  .d-lg-none {
+    display: none;
+  }
+}

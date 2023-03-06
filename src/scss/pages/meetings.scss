@@ -1,0 +1,42 @@
+@use "../components/nav-menu.scss";
+@use "../components/tab.scss";
+@use "../components/form-add.scss";
+@use "../vars" as v;
+
+main#meeting {
+  // position:relative;
+  // z-index: 1;
+  margin-top: 2%;
+
+  
+
+  .meeting-card-container {
+    display: flex;
+    flex-direction: column;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      width: 100%;
+      padding: 1em;
+      border: 1px solid black;
+      border-radius: 5px;
+      word-break: break-all;
+    }
+  }
+}
+
+.date {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.duration {
+  font-weight: 500;
+}
+
+.meeting-name {
+  font-weight: 500;
+}
+

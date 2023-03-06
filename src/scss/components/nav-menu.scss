@@ -1,0 +1,89 @@
+@use "../vars" as v;
+@use "sass:color";
+
+.navbar {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: v.$nav-bg-color;
+  &.d-sm-none {
+    @media (min-width: v.$mobile-width) {
+      display: flex !important;
+    }
+  }
+  .left-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0.7em;
+
+      &.active {
+        background-color: color.adjust(v.$nav-bg-color, $blackness: 40%);
+
+        a {
+          color: v.$nav-link-color;
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        background-color: color.adjust(v.$nav-bg-color, $blackness: 20%);
+      }
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(248, 249, 250);
+  padding: 0.5em;
+
+  a.menu-toggler {
+    padding: 5px;
+    border: 1px solid black;
+  }
+  @media (min-width: v.$mobile-width) {
+    display: none;
+  }
+}
+
+a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media (min-width: v.$mobile-width) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .left-nav {
+      display: flex;
+      flex-direction: row;
+      margin-left: 5%;
+    }
+
+    .right-nav {
+      display: flex;
+      flex-direction: row;
+      margin-right: 5%;
+    }
+  }
+}

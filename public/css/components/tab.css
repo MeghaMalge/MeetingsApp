@@ -1,0 +1,51 @@
+.tab {
+  overflow: hidden;
+  margin-bottom: 1px solid #ccc;
+  background-color: white;
+}
+
+.background {
+  padding-top: 1em;
+  border-top: 1px solid black;
+  z-index: 4;
+  margin-top: -1px;
+}
+
+.tab button {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 17px;
+  background-color: white;
+  border-bottom: 1px solid black;
+  color: rgb(7, 106, 254);
+  cursor: pointer;
+}
+
+.tab button.active {
+  border: 1px solid black;
+  border-bottom: 1px solid white;
+  margin-bottom: -2px;
+  z-index: 10;
+  color: black;
+}
+
+.tabcontent {
+  display: none;
+  padding: 0;
+}
+
+.tabcontent h1 {
+  color: white;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+hr {
+  margin-top: 0px;
+  z-index: 0;
+}
+
+/*# sourceMappingURL=tab.css.map */

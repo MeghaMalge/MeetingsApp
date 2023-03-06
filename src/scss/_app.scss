@@ -1,0 +1,82 @@
+@use "./vars" as v;
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  .add-btn,
+  .add-team-btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.5em;
+    background-color: v.$add-btn-color;
+    color: white;
+    border: 1px solid v.$add-btn-color;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: v.$add-btn-color;
+    }
+  }
+
+  .add-team-btn {
+    margin: 10px 0px;
+    width: 100%;
+  }
+
+  .excuse-yourself-btn {
+    padding: 0.5em;
+    background-color: v.$excuse-yourself-btn-color;
+    color: white;
+    border: 1px solid v.$excuse-yourself-btn-color;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: v.$excuse-yourself-btn-color;
+    }
+  }
+}
+
+.msg-success {
+  position: fixed;
+  top:40%;
+  left:15%;
+  z-index: 5;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px gray;
+  width: 70%;
+  height: 100px;
+  background-color: rgba($color: black, $alpha: 0.5);
+
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    justify-content: center;
+    padding: 1em;
+    color: white;
+
+  }
+
+  .msg-success-btn {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    width: fit-content;
+  }
+
+  @media (min-width: v.$mobile-width) {
+    left: 35%;
+    width: 30%;
+  }
+}
+
+.card .select-input {
+  padding: .35em;
+  width: 40%;
+}
