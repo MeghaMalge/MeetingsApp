@@ -1,6 +1,15 @@
 # MeetingsApp
 
-> MeetingsApp is a SPA(Single Page Application) built using HTML, SASS and Typescript where user can register, login, view their meetings on calendar, schedule or cancel a meeting, add or remove participants from a meeting, be a part of different teams and can form a new team.
+> MeetingsApp is a SPA(Single Page Application) built using HTML, SASS and Typescript.
+> Functionalities provided to the user are:
+1. Register
+2. Login
+3. View their meetings on calendar
+4. Schedule a meeting
+5. Remove themselves from a meeting
+6. Add or remove participants to a meeting
+7. Form a new team
+8. Remove themselves from a team
 
 > For implementing SPA, HTML Templates are used. For each Route, controllers are created which puts the content of desired template into root div.
 
