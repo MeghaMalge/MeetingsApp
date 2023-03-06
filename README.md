@@ -1,6 +1,7 @@
 # MeetingsApp
 
 > MeetingsApp is a SPA(Single Page Application) built using HTML, SASS and Typescript.
+
 > Functionalities provided to the user are:
 1. Register
 2. Login
